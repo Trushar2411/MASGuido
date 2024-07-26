@@ -1,0 +1,16 @@
+version: "2.0"
+rules:
+  - rule: Activate course recommendation form
+    steps:
+      - intent: provide_preferences
+      - action: course_recommendation_form
+      - active_loop: course_recommendation_form
+
+  - rule: Submit course recommendation form
+    condition:
+      - active_loop: course_recommendation_form
+    steps:
+      - action: course_recommendation_form
+      - active_loop: null
+      - action: action_course_recommendation
+

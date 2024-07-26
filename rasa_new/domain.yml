@@ -1,0 +1,59 @@
+version: "2.0"
+intents:
+  - provide_preferences
+
+entities:
+  - topic_preference
+  - difficulty_preference
+  - duration_preference
+  - format_preference
+
+slots:
+  topic_preference:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: topic_preference
+  difficulty_preference:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: difficulty_preference
+  duration_preference:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: duration_preference
+  format_preference:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: format_preference
+
+responses:
+  utter_ask_topic_preference:
+    - text: "What is your preferred topic? (AI, AMR, ISW)"
+  utter_ask_difficulty_preference:
+    - text: "What is your preferred difficulty level? (Beginner, Intermediate, Advanced)"
+  utter_ask_duration_preference:
+    - text: "What is your preferred duration? (Short-term, Medium-term, Long-term)"
+  utter_ask_format_preference:
+    - text: "What is your preferred format? (Online, Offline, Hybrid)"
+  utter_course_recommendation:
+    - text: "Based on your preferences, I recommend the following courses: {course_list}"
+
+actions:
+  - action_course_recommendation
+
+forms:
+  course_preferences_form:
+    required_slots:
+      topic_preference:
+        - type: from_text
+      difficulty_preference:
+        - type: from_text
+      duration_preference:
+        - type: from_text
+      format_preference:
+        - type: from_text
+

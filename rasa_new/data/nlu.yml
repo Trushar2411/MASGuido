@@ -1,0 +1,104 @@
+version: "2.0"
+nlu:
+- intent: provide_preferences
+  examples: |
+    - I prefer AI
+    - I prefer AMR
+    - I prefer ISW
+    - My preferred topic is AI
+    - My preferred topic is AMR
+    - My preferred topic is ISW
+    - I like AI courses
+    - I like AMR courses
+    - I like ISW courses
+    - I like Beginner level courses
+    - I like Intermediate level courses
+    - I like Advanced level courses
+    - My preferred difficulty level is Beginner
+    - My preferred difficulty level is Intermediate
+    - My preferred difficulty level is Advanced
+    - I want Beginner courses
+    - I want Intermediate courses
+    - I want Advanced courses
+    - I want Short-term duration
+    - I want Medium-term duration
+    - I want Long-term duration
+    - My preferred course duration is Short-term
+    - My preferred course duration is Medium-term
+    - My preferred course duration is Long-term
+    - I prefer Short-term courses
+    - I prefer Medium-term courses
+    - I prefer Long-term courses
+    - I prefer Online format
+    - I prefer Offline format
+    - I prefer Hybrid format
+    - My preferred course format is Online
+    - My preferred course format is Offline
+    - My preferred course format is Hybrid
+    - I like Online courses
+    - I like Offline courses
+    - I like Hybrid courses
+    - I want an AI course that is Beginner level
+    - I want an AI course that is Intermediate level
+    - I want an AI course that is Advanced level
+    - I want an AMR course that is Beginner level
+    - I want an AMR course that is Intermediate level
+    - I want an AMR course that is Advanced level
+    - I want an ISW course that is Beginner level
+    - I want an ISW course that is Intermediate level
+    - I want an ISW course that is Advanced level
+    - I want a Short-term AI course
+    - I want a Medium-term AI course
+    - I want a Long-term AI course
+    - I want a Short-term AMR course
+    - I want a Medium-term AMR course
+    - I want a Long-term AMR course
+    - I want a Short-term ISW course
+    - I want a Medium-term ISW course
+    - I want a Long-term ISW course
+    - I want an Online AI course
+    - I want an Offline AI course
+    - I want a Hybrid AI course
+    - I want an Online AMR course
+    - I want an Offline AMR course
+    - I want a Hybrid AMR course
+    - I want an Online ISW course
+    - I want an Offline ISW course
+    - I want a Hybrid ISW course
+    - My preference is for AI and Intermediate level
+    - I prefer AMR and Short-term courses
+    - I like ISW and Hybrid format
+    - I am interested in AI with a Beginner level
+    - I am interested in AMR with an Intermediate level
+    - I am interested in ISW with an Advanced level
+    - I prefer Short-term duration and Online format
+    - My preference is for a Beginner level and Offline format
+    - I like Medium-term courses in AI
+    - I like Advanced courses in AMR
+    - I like Intermediate courses in ISW
+    - My preferred duration is Short-term and format is Online
+    - My preferred duration is Long-term and format is Offline
+    - I prefer Intermediate level courses that are Hybrid
+    - I want to take a course in AI
+    - I want to take a course in AMR
+    - I want to take a course in ISW
+    - I am looking for an AI course
+    - I am looking for an AMR course
+    - I am looking for an ISW course
+    - I prefer online learning
+    - I prefer in-person learning
+    - I like hybrid learning
+    - I want a course that is easy
+    - I want a course that is challenging
+    - I want a short duration course
+    - I want a long duration course
+    - I want an AI course online
+    - I want an AMR course offline
+    - I want an ISW course hybrid
+    - My preferred topic and format are AI and Online
+    - My preferred topic and duration are AMR and Short-term
+    - My preferred topic and difficulty are ISW and Beginner
+    - I am interested in a Short-term, Online AI course
+    - I am interested in a Long-term, Offline AMR course
+    - I am interested in a Medium-term, Hybrid ISW course
+

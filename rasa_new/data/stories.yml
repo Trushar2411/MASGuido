@@ -1,0 +1,9 @@
+version: "2.0"
+stories:
+  - story: Course Recommendation Path
+    steps:
+      - intent: provide_preferences
+      - action: course_recommendation_form
+      - active_loop: course_recommendation_form
+      - action: action_course_recommendation
+
