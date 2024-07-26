@@ -1,0 +1,239 @@
+version: "3.0"
+
+stories:
+  - story: Greet and start course selection
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+  - story: User selects course level and type
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+      - intent: inform
+        entities:
+          - level: easy
+      - action: utter_ask_type
+
+      - intent: inform
+        entities:
+          - type: practical
+      - action: utter_ask_credits
+
+  - story: User selects course credits and subject
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+      - intent: inform
+        entities:
+          - level: hard
+      - action: utter_ask_type
+
+      - intent: inform
+        entities:
+          - type: theory
+      - action: utter_ask_credits
+
+      - intent: inform
+        entities:
+          - credits: 3
+      - action: utter_ask_subject
+
+  - story: User selects all preferences and receives recommendation
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+      - intent: inform
+        entities:
+          - level: easy
+      - action: utter_ask_type
+
+      - intent: inform
+        entities:
+          - type: practical
+      - action: utter_ask_credits
+
+      - intent: inform
+        entities:
+          - credits: 3
+      - action: utter_ask_subject
+
+      - intent: inform
+        entities:
+          - subject: AI
+      - action:
+          - action_recommend_elective
+          - utter_recommend
+
+  - story: Handle denial at different stages
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+      - intent: deny
+      - action: utter_default
+
+  - story: Handle affirmation at different stages
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+      - intent: affirm
+      - action:
+          - action_recommend_elective
+          - utter_recommend
+
+  - story: User asks for help and then chooses elective
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+      - intent: inform
+        entities:
+          - level: easy
+      - action: utter_ask_type
+
+      - intent: choose_elective
+      - action: utter_ask_credits
+
+      - intent: inform
+        entities:
+          - credits: 3
+      - action: utter_ask_subject
+
+      - intent: inform
+        entities:
+          - subject: AI
+      - action:
+          - action_recommend_elective
+          - utter_recommend
+
+  - story: Handle inappropriate language
+    steps:
+      - intent: bad_language
+      - action: utter_bad_language
+
+  - story: Handle bot check
+    steps:
+      - intent: bot_check
+      - action: utter_bot_check
+
+  - story: User ends conversation
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: User asks for recommendation without providing preferences
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+      - intent: choose_elective
+      - action: action_default_fallback
+
+  # Additional Stories
+
+  - story: User starts conversation with a bot check
+    steps:
+      - intent: bot_check
+      - action: utter_bot_check
+
+  - story: User expresses feeling good and chooses elective
+    steps:
+      - intent: feeling_good
+      - action: utter_feeling_good
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+      - intent: inform
+        entities:
+          - level: easy
+      - action: utter_ask_type
+
+      - intent: inform
+        entities:
+          - type: practical
+      - action:
+          - action_recommend_elective
+          - utter_recommend
+
+  - story: User expresses feeling bad and declines elective selection
+    steps:
+      - intent: feeling_bad
+      - action: utter_feeling_bad
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+      - intent: deny
+      - action: utter_default
+
+  # Add more stories to cover various paths and edge cases
+
+  - story: User selects easy level but does not specify type
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+      - intent: inform
+        entities:
+          - level: easy
+      - action: utter_ask_type
+
+      - action: utter_default
+
+  - story: User provides incomplete information and gets prompted again
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+      - intent: choose_elective
+      - action: utter_ask_level
+
+      - intent: inform
+        entities:
+          - level: hard
+      - action: utter_ask_type
+
+      - intent: inform
+        entities:
+          - type: theory
+      - action: utter_ask_credits
+
+      - action: utter_ask_subject
+
+      - intent: inform
+        entities:
+          - subject: AI
+      - action:
+          - action_recommend_elective
+          - utter_recommend
+
