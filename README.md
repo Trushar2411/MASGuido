@@ -64,7 +64,7 @@ Welcome to the Personalized Elective Finder project! This project aims to develo
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/Trushar2411/MASGuido.git
-  ```
+   ```
 ## Usage
 
 ### Running the Simulation
