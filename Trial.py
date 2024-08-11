@@ -1,62 +1,11 @@
 import cv2
 import time
 import os
-import subprocess
+import threading
 from qibullet import SimulationManager, PepperVirtual
 from gtts import gTTS
 from pydub import AudioSegment
 from pydub.playback import play
-import requests
-import threading
-import webbrowser
-import speech_recognition as sr  # Importing speech recognition module
-
-# Load the pre-trained Haar cascades classifier for face detection
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-
-# Path to the success image
-success_image_path = "Media/Success.001.jpeg"  # Change this to your image path
-
-# Start video capture from the webcam
-cap = cv2.VideoCapture(0)
-
-# Variables to track probability duration and success display time
-face_detected_start_time = None
-success_display_start_time = None
-success_displayed = False
-
-# Rasa server URL
-RASA_SERVER_URL = "http://localhost:5005/webhooks/rest/webhook"
-
-# Function to show image full screen
-def show_full_screen(image, window_name):
-    cv2.namedWindow(window_name, cv2.WND_PROP_FULLSCREEN)
-    cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
-    cv2.imshow(window_name, image)
-
-# Function to communicate with Rasa and get response
-def get_rasa_response(message, use_audio=False):
-    if use_audio:
-        # Perform audio recognition
-        recognizer = sr.Recognizer()
-        with sr.Microphone() as source:
-            print("Listening...")
-            audio = recognizer.listen(source)
-        try:
-            user_input = recognizer.recognize_google(audio)
-        except sr.UnknownValueError:
-            user_input = ""
-        except sr.RequestError:
-            user_input = ""
-    else:
-        user_input = input("You: ")
-        
-    payload = {
-        "sender": "user",
-        "message": user_input
-    }
-    response = requests.post(RASA_SERVER_URL, json=payload)
-    return response.json()
 
 # Function to make Pepper speak using TTS
 def speak(message, filename):
@@ -95,6 +44,7 @@ def open_chat_html():
 # Function to speak asynchronously
 def speak_async(message, filename):
     threading.Thread(target=speak, args=(message, filename)).start()
+    
 
 # Pepper robot interaction sequence
 def pepper_interaction(pepper):
@@ -122,16 +72,17 @@ def pepper_interaction(pepper):
                 use_chatbox = False
                 continue
         else:
-            rasa_response = get_rasa_response("", use_audio=True)
-            if rasa_response:
-                user_input = rasa_response[0].get("text", "Sorry, I didn't understand that.")
-            else:
-                user_input = ""
-            
-            if user_input.lower() in ['bye', 'goodbye', 'stop']:
-                speak("Goodbye!", "goodbye.mp3")
-                head_nod(pepper)
-                break
+            user_input = input("You: ")
+            if user_input.lower() in ['chatbox', 'switch']:
+                speak("Switching to chatbox.", "switch.mp3")
+                open_chat_html()
+                use_chatbox = True
+                continue
+
+        if user_input.lower() in ['bye', 'goodbye', 'stop']:
+            speak("Goodbye!", "goodbye.mp3")
+            head_nod(pepper)
+            break
 
         rasa_response = get_rasa_response(user_input)
         if rasa_response:
@@ -140,83 +91,73 @@ def pepper_interaction(pepper):
             speak_async(pepper_response, "pepper_response.mp3")
             head_nod(pepper)
 
-# Main facial detection loop
-while True:
-    # Capture frame-by-frame
-    ret, frame = cap.read()
-    if not ret:
-        break
 
-    # Convert frame to grayscale as Haar cascades work with grayscale images
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+# Face-tracking function using laptop's webcam
+def face_tracking_and_interaction(pepper):
+    # Initialize face detection and webcam
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    cap = cv2.VideoCapture(0)
+    
+    if not cap.isOpened():
+        print("Error: Unable to open camera.")
+        return
 
-    # Detect faces
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+    interaction_started = False
 
-    # Draw rectangle around each face
-    for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            print("Error: Unable to read frame.")
+            break
 
-    # Determine if a face is detected
-    face_detected = len(faces) > 0
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        faces = face_cascade.detectMultiScale(gray, 1.1, 4)
 
-    # Display probability on the frame
-    if face_detected:
-        cv2.putText(frame, f'Face Detected', (10, 30),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-    else:
-        cv2.putText(frame, 'No Face Detected', (10, 30),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+        for (x, y, w, h) in faces:
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
 
-    # Check if a face is detected for more than 2 seconds
-    current_time = time.time()
-    if face_detected:
-        if face_detected_start_time is None:
-            face_detected_start_time = current_time
-        elif (current_time - face_detected_start_time) > 2:
-            if not success_displayed:
-                success_display_start_time = current_time
-                success_displayed = True
-                # Break the loop to stop displaying webcam feed
-                break
-    else:
-        face_detected_start_time = None
+            # Calculate the center of the face
+            center_x = x + w / 2
+            center_y = y + h / 2
+            image_center_x = frame.shape[1] / 2
+            image_center_y = frame.shape[0] / 2
 
-    # Display the resulting frame in full screen
-    show_full_screen(frame, 'Face Detection')
+            # Calculate yaw and pitch for head movement
+            yaw = -(center_x - image_center_x) / image_center_x * 0.5
+            pitch = (center_y - image_center_y) / image_center_y * 0.5
 
-    # Break the loop on 'q' key press
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+            # Move Pepper's head
+            pepper.setAngles(["HeadYaw", "HeadPitch"], [float(yaw), float(pitch)], 0.2)
 
-# Close the webcam window
-cv2.destroyWindow('Face Detection')
 
-# Load and display the success image
-if success_displayed:
-    success_image = cv2.imread(success_image_path)
-    if success_image is not None:
-        show_full_screen(success_image, 'Success')
-        cv2.waitKey(5000)  # Display for 5 seconds
+            # Check if the face is centered to start the interaction
+            if abs(center_x - image_center_x) < w * 0.1 and abs(center_y - image_center_y) < h * 0.1:
+                if not interaction_started:
+                    print("Face centered, starting full interaction...")
+                    interaction_started = True
+                    pepper_interaction(pepper)
 
-# Close all windows
-cv2.destroyAllWindows()
-# Release the capture
-cap.release()
+        cv2.imshow('Face Detection', frame)
 
-# Start Pepper robot simulation and perform greetings
-if success_displayed:
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+def main():
     simulation_manager = SimulationManager()
-    client = simulation_manager.launchSimulation(gui=True)
-    pepper = simulation_manager.spawnPepper(client, spawn_ground_plane=True)
-    pepper.goToPosture("Crouch", 0.6)
-    time.sleep(1)
-    pepper.goToPosture("StandInit", 0.6)
-    time.sleep(1)
+    client_id = simulation_manager.launchSimulation(gui=True)
+    pepper = simulation_manager.spawnPepper(client_id, spawn_ground_plane=True)
+    pepper.goToPosture("Stand", 0.6)
 
-    pepper_interaction(pepper)
+    # Start face tracking and interaction
+    face_tracking_and_interaction(pepper)
 
     # Keep the simulation running until the user closes it
     input("Press Enter to stop the simulation...")
-    simulation_manager.stopSimulation(client)
+    simulation_manager.stopSimulation(client_id)
+
+if __name__ == "__main__":
+    main()
 
