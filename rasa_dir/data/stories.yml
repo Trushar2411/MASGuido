@@ -1,0 +1,9 @@
+version: "3.1"
+
+stories:
+
+- story: fallback response
+  steps:
+  - intent: nlu_fallback
+  - action: utter_fallback_response
+  # - action: action_listen

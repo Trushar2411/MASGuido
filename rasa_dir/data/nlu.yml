@@ -1,0 +1,805 @@
+version: "3.1"
+
+nlu:
+- synonym: winter
+  examples: |
+    - winter semester
+    - winter_term
+    - winter
+    - winter_semester
+    - winter sem
+    - winter term
+    - wintersem
+    - fall semester
+    - fall
+    - fall_term
+    - fall_semester
+    - autumn semester
+    - autumn
+    - autumn_term
+    - autumn_semester
+    - fall sem
+    - fall term
+    - fallsem
+    - autumn sem
+    - autumn term
+    - autumnsem
+    
+- synonym: summer 
+  examples: |
+    - summer semester
+    - summer_term
+    - summer
+    - summer_semester
+    - summer sem
+    - summer term
+    - summersem
+    - summersemester
+    - spring semester
+    - spring
+    - spring_term
+    - spring_semester
+    - spring sem
+    - spring term
+    - springsem
+
+- synonym: manipulation
+  examples: |
+    - manipulation
+    - robotic manipulation
+    - arm manipulation
+    - robot arm manipulation
+    -  manipulator arm
+    - object manipulation
+    - object handling
+    - object manipulation
+
+- synonym: perception
+  examples: |
+    - perception
+    - robotic perception
+    - robot perception
+    - perception system
+    - perception algorithms
+    - perception techniques
+    - perception methods
+    - perception models
+    - perception sensors
+    - perception sensor
+    - opencv
+    - robot vision
+    - computer vision
+    - vision
+
+- synonym: navigation
+  examples: |
+    - navigation
+    - robotic navigation
+    - robot navigation
+    - navigation system
+    - path planning
+    - motion planning
+    - robot path planning
+    - robot motion planning
+    - robot navigation 
+    - navigation and localization
+    - navigation and mapping
+    - path planning and navigation
+
+- synonym: artificial_intelligence
+  examples: |
+    - artificial intelligence
+    - ai
+    - artificial neural networks
+    - machine intelligence
+    - artificial neural networks
+    - AI and robotics
+
+- synonym: machine_learning
+  examples: |
+    - machine learning
+    - ml
+    - deep learning
+    - supervised learning
+    - unsupervised learning
+    - reinforcement learning
+    - neural networks
+    - neural network
+    - deep learning network
+    - deep neural network
+    - deep learning
+    - deep learning techniques
+    - deep learning methods
+    - deep learning models
+    - deep learning algorithms
+    - deep learning systems
+
+- synonym: robotics
+  examples: |
+    - human robot interaction
+    - human-robot interaction
+    - human robot collaboration
+    - human-robot collaboration
+    - human robot communication
+    - human-robot communication
+    - human robot
+    - robotics and human interaction
+    - robotics
+    - robot control
+    - robots
+    - hri
+    - humanoid robotics
+    - robot design
+
+- synonym: natural_language_processing
+  examples: |
+    - natural language processing
+    - nlp
+    - speech recognition
+    - speech synthesis
+    - speech processing
+    - language processing
+    - NLG
+    - NLU
+    - natural language understanding
+    - natural language generation
+
+- synonym: unibonn
+  examples: |
+    - university of bonn
+    - uni bonn
+    - bonn university
+    - bonn uni
+
+- synonym: hbrs
+  examples: |
+    - hbrs
+    - h-brs
+    - hochschule bonn-rhein-sieg
+    - hochschule bonn rhein sieg
+    - hochschule bonn
+    - hochschule rhein sieg
+    - hochschule rhein-sieg
+    - hochschule bonn-rhein-sieg university
+    - applied sciences uni
+    - fachhochschule bonn
+    - FH bonn
+    - FH bonn rhein sieg
+    - fach hochschule bonn
+
+- synonym: oral
+  examples: |
+    - oral
+    - oral exam
+    - oral assessment
+
+- synonym: written
+  examples: |
+    - written
+    - written exam
+    - written assessment
+
+- synonym: theory
+  examples: |
+    - lecture
+    - lecture course
+    - theory
+    - theoretical
+
+- synonym: practical
+  examples: |
+    - practical
+    - practical course
+    - lab
+    - lab course
+    - project
+    - project course
+
+- synonym: research
+  examples: |
+    - seminar
+    - seminar course
+    - research
+    - research course
+
+- synonym: individual
+  examples: |
+    - individual
+    - individual project
+    - individual project work
+    - single
+    - solo
+    - alone
+    - just me 
+    - separate
+
+- synonym: group
+  examples: |
+    - group
+    - group project
+    - group project work
+    - team
+    - together
+    - with others
+    - in a group
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - absolutely
+    - sure
+    - definitely
+    - yeah
+    - ok
+    - okay
+    - cool
+    - great
+    - got it
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - definitely not
+    - no thanks
+    - I'm not sure
+    - I don't know
+    - I don't think so
+    - I don't believe so
+    - I don't want that
+    - nope, not really
+    - no, I don't think so
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - what are you?
+    - who are you?
+    - is this a bot?
+    - is this a human?
+    - what is your name?
+    - are you a real person?
+    - you're a bot, aren't you?
+
+- intent: searching_for_elective
+  examples: |
+    - I am looking for a elective
+    - I want to take a elective
+    - I want to take a elective course
+    - help me find a elective
+    - can you help me find a elective
+    - I need help finding a elective
+    - I need help finding a elective course
+    - suggest me a elective
+    - i hear there are electives available
+    - i hear there are elective courses available
+    - can you suggest me a elective
+    - what elective courses are available
+    - what elective courses are there
+    - what elective courses can I take
+    - what elective courses can I choose from
+    - which elective courses are available
+    - which elective courses can I take
+    - give me the list of elective courses
+    - give me the list of elective available
+    - give me the list of elective I can take
+    - can you suggest me an elective in the upcoming [winter](semester) for [manipulation](course_content) in [university of bonn](university) with [both](exam) types of exams
+    - I am looking for a elective in the [fall semester](semester) for [perception](course_content) in [hbrs](university) with [oral](exam) exam
+    - I want to take a elective in the [summer semester](semester) for [navigation](course_content) in [uni bonn](university) with [written](exam) exam
+    - help me find a elective in the [spring semester](semester) for [artificial intelligence](course_content) in [hochschule bonn-rhein-sieg](university) with [both](exam) types of exams
+    - can you help me find a elective in the [winter semester](semester) for [machine learning](course_content) in [hochschule bonn rhein sieg](university) with [oral](exam) exam
+    - I need help finding a elective in the [fall semester](semester) for [deep learning](course_content) in [hochschule bonn](university) with [written](exam) exam
+    - I need help finding a elective course in the [summer semester](semester) for [HRI](course_content) in [hochschule rhein sieg](university) with [both](exam) types of exams
+    - suggest me a elective in the [spring semester](semester) for [machine learning](course_content) in [hochschule rhein-sieg](university) with [oral](exam) exam
+    - i hear there are electives available in the [winter semester](semester) for [natural language processing](course_content) in [hochschule bonn-rhein-sieg university](university) with [written](exam) exam
+    - can you tell me the elective in the coming [fall semester](semester)
+    - I am looking for a elective in the [autumn semester](semester) in [university of bonn](university) with no project work
+    - I want to take a elective in the [summer semester](semester) for [manipulation](course_content) in [hbrs](university) with [both](exam) types of exams
+    - what elective courses are available in the [spring semester](semester) for [perception](course_content) in [uni bonn](university) with [oral](exam) exam
+    - what elective courses are there in the [winter semester](semester) for [navigation](course_content) in [hbrs](university) 
+    - are there any [theoretical](course_type) electives in the [fall semester](semester) for [artificial intelligence](course_content) in [uni bonn](university) 
+    - can you tell me what all [practical](course_type) electives are available in the [summer semester](semester) 
+    - I am looking for a elective in the [spring semester](semester) for [machine learning](course_content) in [hochschule bonn-rhein-sieg](university) with [both](exam) types of exams
+    - I want to take a elective in the [winter semester](semester) for [deep learning](course_content) in [hochschule bonn](university) 
+    - help me find a elective in the [fall semester](semester) for [HRI](course_content) in [hochschule rhein sieg](university) 
+    - I need to find a elective in [unibonn] this [winter](semester) 
+    - suggest me a elective in the [summer semester](semester) for [robotics](course_content) 
+    - i hear there are electives available in the [spring semester](semester) for [natural language processing](course_content) in [bonn university](university)
+    - can you tell me the elective in the coming [fall semester](semester)
+    - tell me the electives in [fh bonn] this [winter](semester)
+
+- intent: semester_choice
+  examples: |
+    - [winter semester](semester)
+    - [winter_term](semester)
+    - [winter](semester)
+    - [winter_semester](semester)
+    - [winter sem](semester)
+    - [winter term](semester)
+    - [wintersem](semester)
+    - [fall semester](semester)
+    - [fall](semester)
+    - [fall_term](semester)
+    - [fall_semester](semester)
+    - [autumn semester](semester)
+    - [autumn](semester)
+    - [autumn_term](semester)
+    - [autumn_semester](semester)
+    - [fall sem](semester)
+    - [fall term](semester)
+    - [fallsem](semester)
+    - [autumn sem](semester)
+    - [autumn term](semester)
+    - [autumnsem](semester)
+    - [summer semester](semester)
+    - [summer_term](semester)
+    - [summer](semester)
+    - [summer_semester](semester)
+    - [summer sem](semester)
+    - [summer term](semester)
+    - [summersem](semester)
+    - [summersemester](semester)
+    - [spring semester](semester)
+    - [spring](semester)
+    - [spring_term](semester)
+    - [spring_semester](semester)
+    - [spring sem](semester)
+    - [spring term](semester)
+    - [springsem](semester)
+    - I want to take a course in [winter semester](semester)
+    - I want to attend it in [winter](semester)
+    - the next sem, I want to take a course in [fall semester](semester)
+    - I want to take a course in [autumn semester](semester)
+    - in the [fall term](semester), I want to take a course
+    - in the upcoming [autumn semester](semester), I want to take a course
+    - I want to take a course in the [spring semester](semester)
+    - I want to take a course in the [summer semester](semester)
+    - I want to take a course in the [summer term](semester)
+    - I want to take a course in the [spring term](semester)
+    - I want to take a course in the [winter term](semester)
+    - I want to take a course in the [fall term](semester)
+    - I want to take a course in the [winter semester](semester)
+    - I want to take a course in the [summer term](semester)
+    - in the [spring term](semester), I want to take a course
+    - in the upcoming [summer sem](semester), I want to take a elective
+    - probably next [winter](semester)
+    - I'm planning to enroll in the [autumn_term](semester)
+    - Let's schedule it for the [fall_semester](semester)
+    - I'd like to start in the [spring_term](semester)
+    - I'm thinking about taking it in the [autumnsem](semester)
+    - I prefer to start in the [fall sem](semester)
+    - I'm considering the [winter_term](semester) for this course
+    - I want to enroll for the [autumn semester](semester)
+    - I'm looking at courses for the [summer](semester)
+    - I'd like to register for the [spring](semester) intake
+    - I'm interested in programs starting in the [winter sem](semester)
+
+- intent: course_content_choice
+  examples: |
+    - [manipulation](course_content)
+    - [robotic manipulation](course_content)
+    - [arm manipulation](course_content)
+    - [robot arm manipulation](course_content)
+    - [manipulator arm](course_content)
+    - [object manipulation](course_content)
+    - [object handling](course_content)
+    - [perception](course_content)
+    - [robotic perception](course_content)
+    - [robot perception](course_content)
+    - [perception system](course_content)
+    - [perception algorithms](course_content)
+    - [perception techniques](course_content)
+    - [perception methods](course_content)
+    - [perception models](course_content)
+    - [perception sensors](course_content)
+    - [perception sensor](course_content)
+    - [opencv](course_content)
+    - [robot vision](course_content)
+    - [computer vision](course_content)
+    - [vision](course_content)
+    - [navigation](course_content)
+    - [robotic navigation](course_content)
+    - [robot navigation](course_content)
+    - [navigation system](course_content)
+    - [path planning](course_content)
+    - [motion planning](course_content)
+    - [robot path planning](course_content)
+    - [robot motion planning](course_content)
+    - [navigation and localization](course_content)
+    - [navigation and mapping](course_content)
+    - [path planning and navigation](course_content)
+    - [artificial intelligence](course_content)
+    - [ai](course_content)
+    - [artificial neural networks](course_content)
+    - [machine intelligence](course_content)
+    - [AI and robotics](course_content)
+    - [machine learning](course_content)
+    - [ml](course_content)
+    - [deep learning](course_content)
+    - [supervised learning](course_content)
+    - [unsupervised learning](course_content)
+    - [reinforcement learning](course_content)
+    - [neural networks](course_content)
+    - [neural network](course_content)
+    - [deep learning network](course_content)
+    - [deep neural network](course_content)
+    - [deep learning techniques](course_content)
+    - [deep learning methods](course_content)
+    - [deep learning models](course_content)
+    - [deep learning algorithms](course_content)
+    - [deep learning systems](course_content)
+    - [HRI](course_content)
+    - [human robot interaction](course_content)
+    - [human-robot interaction](course_content)
+    - [human robot collaboration](course_content)
+    - [human-robot collaboration](course_content)
+    - [human robot communication](course_content)
+    - [human-robot communication](course_content)
+    - [human robot](course_content)
+    - [robot control](course_content)
+    - [natural language processing](course_content)
+    - [nlp](course_content)
+    - [speech recognition](course_content)
+    - [speech synthesis](course_content)
+    - [speech processing](course_content)
+    - [language processing](course_content)
+    - [NLG](course_content)
+    - [NLU](course_content)
+    - [natural language understanding](course_content)
+    - [natural language generation](course_content)
+    - I am interested in [manipulation](course_content)
+    - I am interested in [robotic manipulation](course_content)
+    - I am interested in [perception](course_content)
+    - I am interested in [computer vision](course_content)
+    - I am interested in [navigation](course_content)
+    - I am interested in [robot navigation](course_content)
+    - I am interested in [artificial intelligence](course_content)
+    - I am interested in [ai](course_content)
+    - I am interested in [machine learning](course_content)
+    - I am interested in [deep learning](course_content)
+    - I am interested in [HRI](course_content)
+    - I am interested in [human-robot interaction](course_content)
+    - I am interested in [robot control](course_content)
+    - I am interested in [natural language processing](course_content)
+    - I am interested in [nlp](course_content)
+    - I am thinking about [object manipulation](course_content)
+    - I am thinking about [robot vision](course_content)
+    - I am thinking about [path planning](course_content)
+    - I am thinking about [machine intelligence](course_content)
+    - I am thinking about [neural networks](course_content)
+    - I am thinking about [human robot collaboration](course_content)
+    - I am thinking about [speech processing](course_content)
+    - I say [arm manipulation](course_content)
+    - I say [perception sensors](course_content)
+    - I say [motion planning](course_content)
+    - I say [artificial neural networks](course_content)
+    - I say [reinforcement learning](course_content)
+    - I say [human-robot communication](course_content)
+    - I say [natural language understanding](course_content)
+    - [robot arm manipulation](course_content) is my interest
+    - [opencv](course_content) is my interest
+    - [navigation system](course_content) is my interest
+    - [robotics](course_content) is my interest
+    - [supervised learning](course_content) is my interest
+    - [human robot](course_content) is my interest
+    - [speech synthesis](course_content) is my interest
+    - I am interested in [manipulator arm](course_content) course 
+    - I am interested in [perception techniques](course_content) course
+    - I am interested in [robot path planning](course_content) course
+    - I am interested in [machine intelligence](course_content) course
+    - I am interested in [deep learning network](course_content) course
+    - I am interested in [human-robot collaboration](course_content) course
+    - I am interested in [language processing](course_content) course
+
+- intent: university_choice
+  examples: |
+    - [university of bonn](university)
+    - [uni bonn](university)
+    - [bonn university](university)
+    - [hbrs](university)
+    - [h-brs](university)
+    - [hochschule bonn-rhein-sieg](university)
+    - [hochschule bonn rhein sieg](university)
+    - [hochschule bonn](university)
+    - [hochschule rhein sieg](university)
+    - [hochschule rhein-sieg](university)
+    - [hochschule bonn-rhein-sieg university](university)
+    - intent: university_choice
+    - I want to do the elective in [university of bonn](university)
+    - I want it in [uni bonn](university)
+    - I'd prefer [bonn university](university)
+    - Let's go with [hbrs](university)
+    - I choose [h-brs](university)
+    - I'll take it at [hochschule bonn-rhein-sieg](university)
+    - My choice is [hochschule bonn rhein sieg](university)
+    - I pick [hochschule bonn](university)
+    - I'd rather do it at [hochschule rhein sieg](university)
+    - [hochschule rhein-sieg](university) for me
+    - I'm going with [hochschule bonn-rhein-sieg university](university)
+    - The elective should be at [university of bonn](university)
+    - I'm selecting [uni bonn](university)
+    - Put me down for [bonn university](university)
+    - [hbrs](university) is my choice
+    - I'll do the elective at [h-brs](university)
+    - Sign me up for [hochschule bonn-rhein-sieg](university)
+    - I've decided on [hochschule bonn rhein sieg](university)
+    - [hochschule bonn](university) is where I want to take it
+    - I'm opting for [hochschule rhein sieg](university)
+    - Let's choose [hochschule rhein-sieg](university)
+    - I prefer [hochschule bonn-rhein-sieg university](university)
+    - [university of bonn](university) is my pick
+    - I'm choosing [uni bonn](university) for the elective
+    - Count me in for [bonn university](university)
+    - [hbrs](university) works for me
+    - I'll go with [h-brs](university)
+    - [hochschule bonn-rhein-sieg](university) is my preference
+    - I want to attend [hochschule bonn rhein sieg](university)
+    - Let's do [hochschule bonn](university)
+    - I'm interested in [hochschule rhein sieg](university)
+    - [hochschule rhein-sieg](university) sounds good
+    - I'll take the elective at [hochschule bonn-rhein-sieg university](university)
+    - [university of bonn](university) please
+    - Sign me up for [uni bonn](university)
+    - I'm leaning towards [bonn university](university)
+    - [hbrs](university) is my final choice
+    - I want to enroll at [h-brs](university)
+    - [hochschule bonn-rhein-sieg](university) it is
+    - I've settled on [hochschule bonn rhein sieg](university)
+    - [hochschule bonn](university) for the elective
+    - Put me in for [hochschule rhein sieg](university)
+    - I'm set on [hochschule rhein-sieg](university)
+    - [fh bonn](university) is where I want to take it
+    - I'm opting for [fh bonn rhein sieg](university)
+    - Let's choose [fach hochschule bonn](university)
+    - I prefer [fachhochschule bonn](university)
+
+- intent: exam_choice
+  examples: |
+    - [oral](exam)
+    - [written](exam)
+    - [both](exam)
+    - [oral exam](exam)
+    - [written exam](exam)
+    - [both oral and written](exam)
+    - [both oral and written exam](exam)
+    - I prefer an [oral](exam) exam
+    - I think a [written](exam) exam would be best
+    - I'm okay with [both](exam) types of exams
+    - I'd like to take an [oral exam](exam)
+    - I'm fine with [both oral and written](exam) exams
+    - I can handle [both oral and written exam](exam) formats
+    - An [oral](exam) assessment would suit me better
+    - I'm more comfortable with [written](exam) exams
+    - I don't mind if it's [both](exam) oral and written
+    - Let's go with an [oral exam](exam)
+    - I'd perform better in a [written exam](exam)
+    - I'm prepared for [both oral and written](exam) assessments
+    - [both oral and written exam](exam) formats are fine with me
+    - My preference is for an [oral](exam) evaluation
+    - A [written](exam) test would be my choice
+    - I'm equally prepared for [both](exam) exam types
+    - I'd rather take a [written exam](exam) if possible
+    - I'm ready for [both oral and written](exam) assessments
+    - [both oral and written exam](exam) formats suit me
+    - I think I'd do better in an [oral](exam) exam
+    - A [written](exam) test would be ideal for me
+    - I can handle [both](exam) types of assessments
+    - An [oral exam](exam) would showcase my skills better
+    - I prefer expressing myself in a [written exam](exam)
+    - I'm prepared for [both oral and written](exam) formats
+    - [both oral and written exam](exam) types are okay with me
+  
+ 
+
+- intent: course_type_choice
+  examples: |
+    - [lecture](course_type)
+    - [seminar](course_type)
+    - [practical](course_type)
+    - [lab](course_type)
+    - [project](course_type)
+    - [lecture course](course_type)
+    - [seminar course](course_type)
+    - [practical course](course_type)
+    - [lab course](course_type)
+    - [project course](course_type)
+    - intent: course_type_choice
+    - [lecture](course_type)
+    - [seminar](course_type)
+    - [practical](course_type)
+    - [lab](course_type)
+    - [project](course_type)
+    - [lecture course](course_type)
+    - [seminar course](course_type)
+    - [practical course](course_type)
+    - [lab course](course_type)
+    - [project course](course_type)
+    - I prefer a [lecture](course_type)
+    - I'd like to take a [seminar](course_type)
+    - I'm interested in a [practical](course_type) course
+    - I want to enroll in a [lab](course_type) course
+    - I'm looking for a [project](course_type) based course
+    - I'm considering a [seminar course](course_type)
+    - I'd prefer a hands-on [lab course](course_type)
+    - I want to participate in a [project course](course_type)
+    - A [lecture](course_type) would be ideal for me
+    - I'm more interested in [seminar](course_type) style courses
+    - I learn best through [practical](course_type) work
+    - I'd like to focus on a [project](course_type) this term
+    - I think a [lecture course](course_type) would suit me best
+    - I'm drawn to [seminar course](course_type) formats
+    - I'm keen on enrolling in a [lab course](course_type)
+    - I'd rather attend a [theory](course_type) than other formats
+    - A discussion-based [seminar](course_type) is what I'm after
+    - I'm hoping to find a [practical](course_type) course option
+    - I want to challenge myself with a [project](course_type) this semester
+    - I'm searching for an engaging [seminar course](course_type)
+    - I'm interested in courses with a [lab course](course_type) component
+    - I learn best in a [lecture](course_type) environment
+    - A [seminar](course_type) would help improve my discussion skills
+    - I need a [practical](course_type) to fulfill my degree requirements
+    - I'd like to gain experience through a [project](course_type)
+    - [theoretical](course_type) courses 
+    - [theory](course_type) courses
+    - [practical](course_type) courses
+    - [research](course_type) courses
+
+- intent: project_type_choice
+  examples: |
+    - [individual](project_type)
+    - [group](project_type)
+    - [individual project](project_type)
+    - [group project](project_type)
+    - [group project work](project_type)
+    - [group project type](project_type)
+    - I prefer working on an [individual](project_type) project
+    - I'd like to join a [group](project_type) project
+    - I'm interested in a [group project](project_type)
+    - I work best with [individual project work](project_type)
+    - I enjoy [group project work](project_type)
+    - My preference is for an [individual project type](project_type)
+    - I'd like to participate in a [group project type](project_type)
+    - I'm looking for [individual project work type](project_type) options
+    - I'd rather work alone on an [individual](project_type) assignment
+    - I'm more productive in a [group](project_type) setting
+    - I'm hoping to collaborate on a [group project](project_type)
+    - I perform better with [individual project work](project_type)
+    - I learn more from [group project work](project_type)
+    - I'd like to sign up for a [group project type](project_type)
+    - I'm interested in [group project work type](project_type) assignments
+    - I work best independently, so an [individual](project_type) project would be ideal
+    - I thrive in team environments, so I'd prefer a [group](project_type) project
+    - I'm excited about the prospect of a [group project](project_type)
+    - I'd like to focus on [individual project work](project_type) this semester
+    - I'm looking forward to engaging in [group project work](project_type)
+    - My learning style aligns better with [individual project type](project_type)
+    - I'd benefit most from a [group project type](project_type)
+    - I'm curious about the [group project work type](project_type) offerings
+    - I'd like to challenge myself with an [individual](project_type) assignment
+    - I'm eager to collaborate with others in a [group](project_type) setting
+    - I'm interested in the dynamics of a [group project](project_type)
+    - I prefer the flexibility of [individual project work](project_type)
+    - I value the collaborative nature of [group project work](project_type)
+    - I'm leaning towards a [group project type](project_type) for this course
+
+- intent: any_choice
+  examples: |
+    - anything
+    - anything would work
+    - both of those
+    - I am okay with anything
+    - I don't mind either
+    - it can be anything
+    - it doesn't matter
+    - either is fine
+    - both are fine
+    - i am fine with both
+    - either is fine with me
+    - any exam format is fine by me
+    - I can work with anything you decide for the exam
+    - any exam format works for me
+    - I'm open to any exam type
+    - I'm flexible with anything in terms of exam format
+    - I'm okay with any type of examination
+    - any exam format is acceptable to me
+    - I can adapt to anything in terms of exam style
+    - I'm fine with any examination method
+    - any exam type would work for my schedule
+    - I'm open to anything regarding the exam format
+    - I'm flexible with any exam structure
+    - Either semester is fine with me
+    - I'm okay with either semester
+    - any sem
+    - both the semesters
+    - either semester
+    - any semester
+    - both semesters
+    - either or
+    - oral or written anything is fine
+    - written or oral anything is fine
+    - anything is fine
+    - oral and or written
+    - oral and written
+    - written or oral
+    - winter or summer
+    - summer or winter
+    - winter or spring
+    - spring or winter
+    - spring or fall
+    - fall or spring
+    - group or solo
+    - single or group
+    - group or individual
+    - individual or group
+    - individual or together
+
+- intent: bad_words
+  examples: |
+    - stupid
+    - idiot
+    - dumb
+    - moron
+    - fool
+    - imbecile
+    - jerk
+    - you are a jerk
+    - you are a fool
+    - you are a moron
+    - you are an idiot
+    - you are stupid
+    - you are dumb
+    - you are an imbecile
+    - you are a stupid bot
+    - i think you are a stupid bot
+    - i think you are a fool
+    - i think you are a moron
+    - i think you are an idiot
+    - i think you are dumb
+    - i think you are an imbecile
+    - you are freaking stupid
+    - you are freaking idiot
+    - you are the worst
+    - you are the worst bot

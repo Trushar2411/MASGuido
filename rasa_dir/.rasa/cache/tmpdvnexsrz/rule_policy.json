@@ -1,0 +1,55 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}]": "utter_greet",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_iamabot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bad_words\"}}]": "utter_bad_words_warning",
+      "[{\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bad_words\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"utter_bad_words_warning\"}, \"user\": {\"intent\": \"bad_words\"}}]": "electives_form",
+      "[{\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bad_words\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"utter_bad_words_warning\"}, \"user\": {\"intent\": \"bad_words\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"electives_form\"}, \"user\": {\"intent\": \"bad_words\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "utter_fallback_response",
+      "[{\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"utter_fallback_response\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "electives_form",
+      "[{\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"utter_fallback_response\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"electives_form\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"searching_for_elective\"}}]": "electives_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"searching_for_elective\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"electives_form\"}, \"user\": {\"intent\": \"searching_for_elective\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"electives_form\"}}]": "utter_form_filled",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"electives_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_form_filled\"}}]": "action_fetch_electives",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"electives_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_form_filled\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_fetch_electives\"}}]": "action_clear_slots",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"electives_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_form_filled\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_fetch_electives\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_clear_slots\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "electives_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"utter_bad_words_warning\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"electives_form\"}, \"user\": {\"intent\": \"bad_words\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"utter_fallback_response\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"electives_form\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"electives_form\"}, \"user\": {\"intent\": \"searching_for_elective\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "handling active loops and forms - electives_form",
+      "[{\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bad_words\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"utter_bad_words_warning\"}, \"user\": {\"intent\": \"bad_words\"}}]",
+      "handling active loops and forms - electives_form - action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}]",
+      "predicting default action with intent restart",
+      "[{\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"utter_fallback_response\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"searching_for_elective\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"electives_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_form_filled\"}}]",
+      "[{\"active_loop\": {\"name\": \"electives_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bad_words\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"electives_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_form_filled\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_fetch_electives\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_clear_slots\"}}]",
+      "predicting default action with intent session_start",
+      "predicting default action with intent back",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"electives_form\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"electives_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_form_filled\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_fetch_electives\"}}]"
+    ]
+  }
+}

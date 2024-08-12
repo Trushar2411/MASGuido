@@ -1,0 +1,230 @@
+robot_manipulation:
+  semester: 
+    - winter
+    - summer
+  course_content: manipulation
+  university: hbrs
+  assignment: true
+  project: true
+  project_type: solo
+  exam: written
+  course_type: practical
+  prerequisites: false
+
+robot_learning:
+  semester: 
+    - winter
+    - summer
+  course_content: manipulation
+  university: unibonn
+  assignment: true
+  project: true
+  project_type: group
+  exam: written
+  course_type: theory
+  prerequisites: true
+
+deep_learning_for_robot_vision:
+  semester: summer
+  course_content: perception
+  university: hbrs
+  assignment: true
+  project: true
+  project_type: group
+  exam: written
+  course_type: theory
+  prerequisites: true
+
+computer_vision:
+  semester: winter
+  course_content: perception
+  university: hbrs
+  assignment: true
+  project: true
+  project_type: group
+  exam: oral
+  course_type: theory
+  prerequisites: false
+
+cv1:
+  semester: winter
+  course_content: perception
+  university: unibonn
+  assignment: true
+  project: false
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: false
+
+cv2:
+  semester: summer
+  course_content: perception
+  university: unibonn
+  assignment: true
+  project: false
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: true
+
+lab_mobile_robots:
+  semester: 
+    - winter
+    - summer
+  course_content: navigation
+  university: unibonn
+  assignment: false
+  project: true
+  project_type: group
+  exam: written
+  course_type: practical
+  prerequisites: true
+
+autonomous_mobile_systems:
+  semester: 
+    - winter
+    - summer
+  course_content: navigation
+  university: unibonn
+  assignment: true
+  project: false
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: true
+
+explainable_ai:
+  semester: 
+    - winter
+    - summer
+  course_content: artificial_intelligence
+  university: unibonn
+  assignment: true
+  project: true
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: false
+
+probabilistic_reasoning:
+  semester: 
+    - winter
+    - summer
+  course_content: artificial_intelligence
+  university: hbrs
+  assignment: true
+  project: true
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: true
+
+machine_learning:
+  semester: winter
+  course_content: machine_learning
+  university: hbrs
+  assignment: true
+  project: true
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: true
+
+reinforcement_learning:
+  semester: winter
+  course_content: machine_learning
+  university: hbrs
+  assignment: true
+  project: true
+  project_type: group
+  exam: written
+  course_type: theory
+  prerequisites: true
+
+bayesian_inference_and_gaussian_processes:
+  semester: summer
+  course_content: machine_learning
+  university: hbrs
+  assignment: true
+  project: false
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: true
+
+algorithms_for_data_science:
+  semester: 
+    - winter
+    - summer
+  course_content: machine_learning
+  university: unibonn
+  assignment: true
+  project: true
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: true
+
+hcir:
+  semester: 
+    - winter
+    - summer
+  course_content: robotics
+  university: hbrs
+  assignment: true
+  project: true
+  project_type: group
+  exam: written
+  course_type: theory
+  prerequisites: false
+
+cognitive_robotics:
+  semester: summer
+  course_content: robotics
+  university: hbrs
+  assignment: true
+  project: true
+  project_type: group
+  exam: written
+  course_type: theory
+  prerequisites: false
+
+humanoid_robotics:
+  semester: 
+    - winter
+    - summer
+  course_content: robotics
+  university: unibonn
+  assignment: true
+  project: true
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: true
+
+natural_language_processing:
+  semester: 
+    - winter
+    - summer
+  course_content: natural_language_processing
+  university: hbrs
+  assignment: true
+  project: true
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: false
+
+introduction_to_natural_language_processing:
+  semester: 
+    - winter
+    - summer
+  course_content: natural_language_processing
+  university: unibonn
+  assignment: true
+  project: true
+  project_type: solo
+  exam: written
+  course_type: theory
+  prerequisites: false

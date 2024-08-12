@@ -1,0 +1,236 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - searching_for_elective
+  - semester_choice
+  - course_content_choice
+  - university_choice
+  - project_type_choice
+  - exam_choice
+  - course_type_choice
+  - bad_words
+  - any_choice
+  - nlu_fallback
+
+actions:
+  - validate_electives_form
+  - action_fetch_electives
+  - action_clear_slots
+  
+entities:
+  - semester
+  - course_content
+  - university
+  - assignment
+  - project
+  - project_type
+  - exam
+  - prerequisites
+  - course_type
+
+slots:
+  semester:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: semester
+      - type: from_intent
+        value: "any"
+        intent: any_choice
+        conditions:
+        - active_loop: electives_form
+          requested_slot: semester
+
+  course_content:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: course_content
+      - type: from_intent
+        value: "any"
+        intent: any_choice
+        conditions:
+        - active_loop: electives_form
+          requested_slot: course_content
+
+  university:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: university
+      - type: from_intent
+        value: "any"
+        intent: any_choice
+        conditions:
+        - active_loop: electives_form
+          requested_slot: university  
+
+  assignment:
+    type: text
+    mappings:
+      - type: from_intent
+        value: "yes"
+        intent: affirm
+        conditions:
+        - active_loop: electives_form
+          requested_slot: assignment
+      - type: from_intent
+        value: "no"
+        intent: deny
+        conditions:
+        - active_loop: electives_form
+          requested_slot: assignment
+      - type: from_intent
+        value: "any"
+        intent: any_choice
+        conditions:
+        - active_loop: electives_form
+          requested_slot: assignment
+
+  project:
+    type: text
+    mappings:
+      - type: from_intent
+        value: "yes"
+        intent: affirm
+        conditions:
+        - active_loop: electives_form
+          requested_slot: project
+      - type: from_intent
+        value: "no"
+        intent: deny
+        conditions:
+        - active_loop: electives_form
+          requested_slot: project
+      - type: from_intent
+        value: "any"
+        intent: any_choice
+        conditions:
+        - active_loop: electives_form
+          requested_slot: project
+
+  project_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: project_type
+      - type: from_intent
+        value: "any"
+        intent: any_choice
+        conditions:
+        - active_loop: electives_form
+          requested_slot: project_type
+
+  exam:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: exam
+      - type: from_intent
+        value: "any"
+        intent: any_choice
+        conditions:
+        - active_loop: electives_form
+          requested_slot: exam
+
+  prerequisites:
+    type: text
+    mappings:
+      - type: from_intent
+        value: "yes"
+        intent: affirm
+        conditions:
+        - active_loop: electives_form
+          requested_slot: prerequisites
+      - type: from_intent
+        value: "no"
+        intent: deny
+        conditions:
+        - active_loop: electives_form
+          requested_slot: prerequisites
+
+  course_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: course_type
+      - type: from_intent
+        value: "any"
+        intent: any_choice
+        conditions:
+        - active_loop: electives_form
+          requested_slot: course_type
+
+forms:
+  electives_form:
+    required_slots:
+      - semester
+      - course_content
+      - university
+      - assignment
+      - project
+      - project_type
+      - exam
+      - prerequisites
+      - course_type
+    
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_electives_form_semester:
+  - text: "In which semester are you looking for electives?"
+
+  utter_ask_electives_form_course_content:
+  - text: "What field are you looking to focus on?"
+
+  utter_ask_electives_form_university:
+  - text: "Which university are you looking for electives in?"
+
+  utter_ask_electives_form_assignment:
+  - text: "Do you want to assignments in the elective?"
+
+  utter_ask_electives_form_project:
+  - text: "Do you want to do projects in the elective?"
+
+  utter_ask_electives_form_project_type:
+  - text: "Do you want to do the project solo or in a group ?"
+
+  utter_ask_electives_form_exam:
+  - text: "What type of exam do you prefer? Oral or written?"
+
+  utter_ask_electives_form_prerequisites:
+  - text: "Some electives have the mandatory subjects as prerequisites. Have you completed those courses?"
+
+  utter_ask_electives_form_course_type:
+  - text: "What type of course do you want? We got theoretical, practical and research?"
+
+  utter_form_filled:
+  - text: "Okay, you have chosen {semester} for semester, {course_content} for course content, {university} for university, {assignment} for assignment, {project} for project, {exam} for exam, {prerequisites} for having the prerequisites and {course_type} for course type."
+
+  utter_bad_words_warning:
+  - text: "Please mind your language!"
+
+  utter_fallback_response:
+  - text: "I am sorry, I didn't get that. Can you please rephrase?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
