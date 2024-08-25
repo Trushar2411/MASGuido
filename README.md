@@ -115,7 +115,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 For any queries or support, please contact:
 
 - Trushar Ghanekar(trushar.ghanekar2411@gmail.com)
-- Shrikar Nakhye()
+- Shrikar Nakhye(nakhyeshrikar@icloud.com)
 
 ---
 
